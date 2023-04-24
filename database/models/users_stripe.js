@@ -3,17 +3,17 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class users_stripe extends Model {
+  class UsersStripe extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      users_stripe.belongsTo(models.Users, {as: 'user', foreignKey: 'user_id'})
+      UsersStripe.belongsTo(models.Users, {as: 'user', foreignKey: 'user_id'})
     }
   }
-  users_stripe.init({
+  UsersStripe.init({
     user_id: {
       type: DataTypes.UUID,
       allowNull:false,
@@ -25,8 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'users_stripe',
-    tableName: 'users_stripe'
+    modelName: 'UsersStripe',
+    tableName: 'users_stripe',
+    underscored: true,
+    timestamps: true,
   });
-  return users_stripe;
+  return UsersStripe;
 };

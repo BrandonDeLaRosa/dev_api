@@ -17,7 +17,7 @@ router.post('/forget-password', verifySchema(forgetPasswordSchema, 'body'), forg
 
 router.post('/change-password/:token', verifySchema(restorePasswordSchema, 'body'), restorePassword) 
 
-
+ 
 
 router.get(
   '/me',
